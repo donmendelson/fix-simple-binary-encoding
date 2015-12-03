@@ -124,7 +124,7 @@ The block size must be at least the sum of lengths of all fields at the
 root level of the message, and that is its default value. However, it
 may be set larger to reserve more space to effect alignment of blocks.
 This is specified by setting the blockLength attribute in a message
-schema. See section .
+schema. 
 
 ### Template ID
 
@@ -283,6 +283,14 @@ Example repeating group encoding specification
     <field name="PartyRole" id="452" type="uint8" semanticType="int"/>
 </group>
 ```
+
+### Group block length
+
+The blockLength part of a group dimension represents total space reserved 
+for each group entry, not counting any nested repeating groups or variable-length
+fields. (Length of a variable-length Data field is given by its corresponding
+Length field.) Block length only represents message body fields; it does not
+include the length of the group dimension itself, which is a fixed size.
 
 ### Padding at end of a group entry
 
